@@ -1,0 +1,35 @@
+<h2>Đăng ký tài khoản</h2>
+<form [formGroup]="registerForm" (ngSubmit)="submit(registerForm)" id="register-form">
+  <div>
+    <label for="email">Email: </label>
+    <input type="email" id="email" class="form-control" formControlName="email" placeholder="Enter email" required minlength="6" maxlength="15">
+  </div>
+  <div>
+    <label for="password">Password: </label>
+    <input type="text" id="password" class="form-control" formControlName="password" placeholder="Enter password" minlength="6" maxlength="15" required>
+  </div>
+  <div>
+    <label for="confirmPassword">Confirm Password: </label>
+    <input type="text" id="confirmPassword" class="form-control" formControlName="confirmPassword" placeholder="Enter re-pasword" required>
+  </div>
+  <div>
+    <label for="country">Country</label>
+    <select id="country">
+      <option *ngFor="let country of countries" formControlName="country" >{{country.name}}</option>
+    </select>
+  </div>
+  <div>
+    <label for="age">Age: </label>
+    <input type="number" id="age" formControlName="age" placeholder="Enter age"  required min="18" max="99">
+  </div>
+  <div class="row">
+    <label>Gender</label>
+    <input value="male" [(ngModel)]="user.gender" type="radio" name="gender">Male
+    <input value="female" [(ngModel)]="user.gender" type="radio" name="gender">Female
+  </div>
+  <div>
+    <label for="phone">Phone Number: </label>
+    <input type="number" id="phone" formControlName="phone" placeholder="Enter phone number" required>
+  </div>
+  <button>Submit</button>
+</form>
